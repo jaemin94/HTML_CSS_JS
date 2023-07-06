@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        // number
+        document.write(typeof 10 + "<br/>");
+        document.write(typeof 10.5 + "<br/>");
+
+        // String
+        document.write(typeof "Hello World" + "<br/>");
+        document.write(typeof 'Hello World' + "<br/>");
+        document.write(typeof `Hello World` + "<br/>"); // 빽태그 (~ 표시를 그냥 누르면 나오는 표시)
+
+        // Object -> json
+        document.write(typeof {name:'홍길동',age:55} + "<br/>"); // object 안에 있는 부분을 json 으로 바꾼후에 출력이 가능하다
+        document.write(typeof JSON.stringify({name:'홍길동',age:55}) + "<br/>"); // JSON.stringify 함수로 스트링 형태로 출력이 가능하다
+        
+        // Null -> 객체단위로 표시가 된다
+        let value1 = null; // 변수 초기화
+        document.write(typeof value1 + "<br/>");
+        let value2; // 변수정의 -> undefined(초기값이 정의되지 않았다) 로 표시가 된다
+        document.write(value2 + "<br/>");
+
+        // boolean
+        document.write(typeof true + "<br/>");
+
+
+
+    </script>
+
+    
+</body>
+</html>

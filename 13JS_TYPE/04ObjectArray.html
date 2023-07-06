@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let arr = ['test1','test2',30,true,null,{name: '홍길동', age : 55}];
+        // 배열의 type 확인
+        // console.log(typeof arr);
+        // 배열을 출력
+        // document.write(JSON.stringify(arr));
+        // document.write(JSON.stringify(arr[5]));
+
+
+        // 요소의 type 확인
+        // console.log(typeof arr[0]);
+        // console.log(typeof arr[1]);
+        // console.log(typeof arr[2]);
+        // console.log(typeof arr[3]);
+        // console.log(typeof arr[4]);
+        // console.log(typeof arr[5]);
+
+        // 동적확장 여부 확인 - 문법적으로 허용해준다
+        // arr[6] = 100;
+        // console.log(arr[6]);
+        // console.log(arr[7]);
+        // arr[10] = 200;
+        // console.log(arr[10]);
+        // document.write(JSON.stringify(arr));
+
+        // 요소탐색(반복문)
+        // for(let i = 0 ; i<arr.length; i++)
+        // {
+        //     console.log(arr[i]);
+        // }
+
+        // for(let i in arr){
+        //     console.log(arr[i]);
+        // }
+
+        // 배열관련 메서드
+        // arr.push(200);  // 마지막 인덱스에 값 입력
+        // console.log(arr.pop()); // 마지막 인덱스 값 출력
+        // arr.sort(); // 정렬
+        
+        // 배열의 요소 탐색(중요!)
+        // arr.forEach((item)=>{console.log(item);});
+
+        // 배열의 요소 필터링(중요!)
+        // filter((요소변수)=>{조건식})
+        // 조건식을 만족하는 요소만 필터링해서 따로 배열에 저장
+        // {} 중괄호는 라인이 길어질때는 필요하지만 한줄이면 사용을 안해도된다.
+        let arr2 = [10,15.2,'t1','t2',30,true,null,100,{name:"티모",age:55},20]
+        let returnArr = arr2.filter( item => typeof item == "number");
+        // console.log(arr2.filter(Number));
+        // console.log(returnArr);
+        // sort 함수내에서 함수를 사용하여 숫자 정렬을 할수있다.버블정렬(콜백함수)
+        // arr2.filter( item => typeof item == "number")
+        // .sort(function(a,b){return b-a;}) // a- b 올림차순, b-a 내림차순
+        // .forEach( item => console.log(item));
+        
+        // reduce ((누산변수,요소변수)=>{return 연산로직}, 누산변수초기값)
+        // let returnVal = arr2.filter( item => typeof item == "number")
+        //                 .reduce( (sum,item)=>{
+        //                     console.log("sum: " , sum, "item: ",item);
+        //                     return sum*item;
+        //                 } ,1);
+        
+        // console.log(returnVal);
+        
+
+        // foreach((key,value) =>{로직}) // foreach를 이용해서 배열의 key,value로 받아올수있다.
+        //  map (key : value 형식)
+         let arr3 = [{name:'홍길동',age:55},
+                     {name:'은길동',age:45},
+                    30,
+                    40,
+                    50
+                    ];
+             
+        // let returnArr2 = arr3.map(function(key1, value){
+        // if (typeof key1 === 'object') {
+        // Object.keys(key1).forEach(function(key) {
+        //     console.log("key: " + key + " value: " + item[key]);
+        // });
+        //     }
+        //         else
+        //     {
+        //         console.log("key : " + key + " value : " + value);
+        //     }    
+        // });
+
+        // let arr4 = [10,20,30,40,50];
+
+        // let rarr = arr4.map((item)=>{
+        //     return item+'%';
+        // });
+        // console.log(rarr);
+
+        // map + object배열
+        // let orderList = 
+        // [
+        //     {oid:"111",oadd:"대구",customer:"홍길동",tel:"010-222-333"},
+        //     {oid:"112",oadd:"울산",customer:"동길동",tel:"010-222-334"},
+        //     {oid:"113",oadd:"창원",customer:"서길동",tel:"010-222-335"},
+        //     {oid:"114",oadd:"김해",customer:"남길동",tel:"010-222-336"}
+        // ];
+
+        // // object 배열에서 oid 와 tel만 추출
+        // let rarr2 = orderList.map((item)=>({
+        //     oid : item.oid,
+        //     tel : item.tel
+        // }));
+
+        // console.log(rarr2);
+
+        arr3.map((key,value)=>{
+            if(typeof key == 'object'){
+                for(k  in key){
+                    console.log(k," ",key[k])
+                }
+            }else{
+            console.log(key,value);
+            }
+        })
+    </script>
+
+
+</body>
+</html>
