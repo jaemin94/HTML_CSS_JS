@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 상위 프로토타입
+        function Animal(name)
+        {
+            console.log("Animal 생성자 호출!");
+            this.name = name;
+        }
+
+        Animal.prototype.getName = function(){
+            console.log('My name is ${this.name}');
+        }
+
+        // 하위 프로토타입
+        function Dog(name,kind)
+        {
+            Animal.call(this,name);
+            console.log("Dog 생성자 호출");
+            this.kind = kind;
+        }
+        
+        // 프로토타입 상속 코드
+        Dog.prototype = Object.create(Animal.prototype);
+
+        const dog1 = new Dog('뽀삐','골든리트리버');
+        console.log(dog1);
+
+        function 포메라니안(name,kind,color)
+        {
+            Dog.call(this,name,kind)
+            console.log('포메라니안 생성자 호출!');
+            this.color = color;
+        }
+
+        포메라니안.prototype = Object.create(Dog.prototype);
+
+        const 포메1 = new 포메라니안("뽀삐","포메","블랙");
+        console.log(포메1);
+
+        // 직접적으로 프로토타입에 접근하는건 좋지 않다, 그래서 __proto__ 로 위치 정보를 가져온다
+        console.log(dog1.__proto__);
+
+
+
+    </script>
+
+
+</body>
+</html>

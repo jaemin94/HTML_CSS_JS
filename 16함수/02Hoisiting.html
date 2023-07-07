@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 호이스팅(끝어올리다)
+        // 코드가 실행되기 전에 선언된 변수/함수가 해당 스코프의 최상단으로 끌어 올려진 것 같은 현상
+        // 자바랑 다르게 함수생성전 위에서 사용이 가능하다
+        // const 를 사용해서 만들면 생성후에만 불러서 사용할수있다
+       
+        // 호이스팅 처리 o
+        // func1();
+        // function func1(){
+        //     console.log("func1 호출! ");
+        // }
+        
+        // 호이스팅 처리 x
+        const func2 = function(){
+            console.log("func2 호출!");
+        };
+        func2();
+
+        const func3 = ()=>{
+            console.log("func3 호출!");
+        };
+        func3();
+
+        // 함수표현식 권장
+        // 이유1    : 코드 구조를 무너뜨린다
+        // 이유2    : 절차대로 처리가 되지 않는다
+
+    </script>
+
+
+
+
+
+</body>
+</html>
