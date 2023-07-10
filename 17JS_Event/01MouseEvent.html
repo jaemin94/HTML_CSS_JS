@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="d1" style="width:100px; height: 100px; border:1px solid; margin-bottom: 50px;"></div>
+    <div id="d2" style="width:100px; height: 100px; border:1px solid; margin-bottom: 50px;"></div>
+    <div id="d3" style="width:500px; height: 500px; border:1px solid;"></div>
+
+    
+    
+    <script>
+        // click 이벤트 처리
+        const d1tg = document.getElementById("d1");
+        d1tg.addEventListener('click',function(){
+            this.innerHTML='<h3>CLICK</h3>';
+            alert('나가');
+        })
+
+        // Hover 이벤트 처리
+        const d2tg = document.getElementById("d2");
+        d2tg.addEventListener('mouseover',function(){
+            this.innerHTML='<h3>over</h3>';
+        })
+        d2tg.addEventListener('mouseleave',function(){
+            this.innerHTML='<h3>leave</h3>';
+        })
+
+        // drag 이벤트 처리
+        const d3tg = document.getElementById("d3");
+        d3tg.addEventListener('dragover',function(event){
+            console.log('dragover');
+            // 드랍 요소를 인식할수 있도록 기본 동작 취소
+            event.preventDefault();
+        });
+        d3tg.addEventListener('drop',function(event){
+            console.log('drop',event);
+
+            const files = event.dataTransfer.files;
+            for(i=0; i<files.length;i++)
+            {
+                const file = files[i];
+                console.log('file : ' ,file.name);
+                if(file.type.startsWith('image')){
+                    const imgtg = document.createElement('img');
+                    imgtg.src=URL.createObjectURL(file);    // img src= 파일의 URL 경로
+                    d3tg.appendChild(imgtg);
+                }
+            }
+            event.preventDefault();
+        });
+
+    </script>
+
+
+
+</body>
+</html>
