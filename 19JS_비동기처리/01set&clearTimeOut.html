@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+            margin: 50px;
+            overflow: auto;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="d1"></div>
+
+
+
+    <button onclick='startTimeOut()'>예약실행</button>
+    <button onclick='cancelTimeOut()'>예약취소</button>
+    <div class="d2"></div>
+
+
+    <script>
+
+        const d1El = document.querySelector('.d1');
+        const d2El = document.querySelector('.d2');
+
+        d1El.addEventListener("click",function(){
+            d1El.innerHTML+="CLICKED!!!!<br>";
+
+        });
+
+        // setTimeOut 예약작업(일정시간 이후 특정작업 동작 - 비동기 처리(걸어 놓고 다른것을 실행할 수 있다))
+        // 자바의 thread 개념
+        let batch01 = null;
+        function startTimeOut(){
+            batch01 = setTimeout(()=>{
+                d2El.innerHTML+="setTimeoutTest!<br>";// 콜백함수, 로직 + 밀리세컨드 단위로 예약을 한다
+            },3000)
+        };
+
+        function cancelTimeOut(){
+            clearTimeout(batch01);
+        }
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

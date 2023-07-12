@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="addEl()">노드추가</button>
+    <hr/>
+
+    <div id="container">
+
+    </div>
+
+    <script>
+        let cnt =0;
+        const addEl = ()=>{
+            const ConEl = document.getElementById('container'); // 요소 찾기
+           
+            const DivEl = document.createElement('div');        // 요소 만들기
+            DivEl.innerHTML=`<h3>NEW EL - ${++cnt}</h3>`;                  // 이벤트가 발생할때 
+            DivEl.setAttribute('style','background-color:orange');   // 새로운 노드가 추가될때 스타일 입히기
+
+            // ConEl.append(DivEl);                             // 순서대로
+            ConEl.prepend(DivEl);                               // 역순
+        };
+
+
+    </script>
+
+
+</body>
+</html>

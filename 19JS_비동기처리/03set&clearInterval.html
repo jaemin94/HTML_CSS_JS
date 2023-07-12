@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 300px;
+            height: 100px;
+            border: 1px solid;
+            margin: 10px;
+            overflow:auto;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+
+    <div class="box">
+
+
+    </div>
+
+    <script>
+
+        const boxEl = document.querySelector(".box");
+
+        let currentProcess = null;
+
+        function start(){
+            currentProcess = setInterval(()=>{
+                boxEl.innerHTML+="BatchProcess....<br>"
+            },1000);
+        };
+
+        function stop(){
+            clearInterval(currentProcess);
+        };
+
+    </script>
+
+
+
+</body>
+</html>
